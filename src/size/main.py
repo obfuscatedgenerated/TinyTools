@@ -1,4 +1,5 @@
 import argparse
+import math
 
 ap = argparse.ArgumentParser(description="Get the line count of a file.")
 
@@ -34,55 +35,18 @@ args.file.seek(0, 2)
 
 bc = args.file.tell()
 
-if args.units == "bits":  # this sucks, i'll change it later
-    if args.suffix:
-        print(str(bc * 8) + "b")
-    else:
-        print(bc * 8)
-elif args.units == "bytes":
-    if args.suffix:
-        print(str(bc) + "B")
-    else:
-        print(bc)
-elif args.units == "kilobits":
-    if args.suffix:
-        print(str(bc / 125) + "kb")
-    else:
-        print(bc / 125)
-elif args.units == "kilobytes":
-    if args.suffix:
-        print(str(bc / 1000) + "KB")
-    else:
-        print(bc / 1000)
-elif args.units == "megabits":
-    if args.suffix:
-        print(str(bc / 125000) + "mb")
-    else:
-        print(bc / 125000)
-elif args.units == "megabytes":
-    if args.suffix:
-        print(str(bc / 1000000) + "MB")
-    else:
-        print(bc / 1000000)
-elif args.units == "gigabits":
-    if args.suffix:
-        print(str(bc / 125000000) + "gb")
-    else:
-        print(bc / 125000000)
-elif args.units == "gigabytes":
-    if args.suffix:
-        print(str(bc / 1000000000) + "GB")
-    else:
-        print(bc / 1000000000)
-elif args.units == "terabits":
-    if args.suffix:
-        print(str(bc / 125000000000) + "tb")
-    else:
-        print(bc / 125000000000)
-elif args.units == "terabytes":
-    if args.suffix:
-        print(str(bc / 1000000000000) + "TB")
-    else:
-        print(bc / 1000000000000)
+divisors = {"bits": 0.125, "bytes": 1, "kilobits": 125, "kilobytes": 1000, "megabits": 125000, "megabytes": 1000000, "gigabits": 125000000, "gigabytes": 1000000000, "terabits": 125000000000, "terabytes": 1000000000000}
+
+suffixes = {"bits": "b", "bytes": "B", "kilobits": "Kb", "kilobytes": "KB", "megabits": "Mb", "megabytes": "MB", "gigabits": "Gb", "gigabytes": "GB", "terabits": "Tb", "terabytes": "TB"}
+
+dv = bc/divisors[args.units]
+
+if (math.floor(dv) == dv):
+    dv = int(dv)
+
+if args.suffix:
+    print(str(dv)+suffixes[args.units])
+else:
+    print(dv)
 
 args.file.close()
