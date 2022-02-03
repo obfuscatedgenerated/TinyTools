@@ -7,9 +7,7 @@ ap.add_argument(
 )
 ap.add_argument(
     "--keep-newlines",
-    "-keep-newlines",
-    "--kn",
-    "-kn",
+    "-k",
     action="store_true",
     help="count newlines as characters",
 )
