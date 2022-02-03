@@ -1,0 +1,6 @@
+/build/
+.dccache
+/.vscode/
+/env/
+*.pyc
+/dist/
