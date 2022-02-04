@@ -12,7 +12,8 @@ ap.add_argument("passthrough", nargs="*", help="the arguments to pass to the too
 
 preproc = sys.argv[1:]
 
-preproc.insert(0,"--")
+if not (sys.argv[1] == "--help" or sys.argv[1] == "-h"):
+    preproc.insert(0,"--")
 
 args = ap.parse_args(preproc)
 
