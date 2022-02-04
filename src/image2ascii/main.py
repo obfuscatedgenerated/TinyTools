@@ -19,10 +19,11 @@ ia = np.array(img)
 
 w,h = ia.shape
 
+
 if args.scale != 1.0:
     w = int(w*args.scale)
     h = int(h*args.scale)
-    ia = np.array(img.resize((w,h)))
+    ia = np.array(img.resize((h,w)))
 
 output = []
 
@@ -31,6 +32,7 @@ asc_scalar = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"
 for i in range(0,w):
     row = []
     for j in range(0,h):
+        #print(i,j,".",w,h)
         row.append(asc_scalar[int((np.average(ia[i][j])*(len(asc_scalar)-1))/255)])
     output.append("".join(row))
 
