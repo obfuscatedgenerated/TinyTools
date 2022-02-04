@@ -1,5 +1,6 @@
 import argparse
 import os
+import sys
 import asyncio
 
 ap = argparse.ArgumentParser(description="Run a tool directly to bypass PATH conflicts.")
@@ -9,7 +10,11 @@ ap.add_argument(
 )
 ap.add_argument("passthrough", nargs="*", help="the arguments to pass to the tool")
 
-args = ap.parse_args()
+preproc = sys.argv[1:]
+
+preproc.insert(0,"--")
+
+args = ap.parse_args(preproc)
 
 async def get_PATH_tt():
     proc = await asyncio.create_subprocess_shell(
