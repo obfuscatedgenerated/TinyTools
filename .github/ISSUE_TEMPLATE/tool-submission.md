@@ -21,5 +21,11 @@ assignees: ''
 # Tool Usage
 <!-- BRIEFLY DESCRIBE HOW TO USE THE TOOL, THE ARGUMENTS, AND WHAT BENEFIT IT BRINGS -->
 
+# Linked Issue
+<!-- REFERENCE THE ISSUE NUMBER HERE -->
+
+# Linked Discussion (optional)
+<!-- REFERENCE THE DISCUSSION NUMBER HERE -->
+
 # Needed external files
 <!-- LIST ANY FILES THAT NEED TO BE INCLUDED IN THE BUILD -->
