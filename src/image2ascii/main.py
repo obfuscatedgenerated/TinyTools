@@ -35,3 +35,5 @@ for i in range(0,w):
     output.append("".join(row))
 
 print("\n".join(output))
+
+args.file.close()
