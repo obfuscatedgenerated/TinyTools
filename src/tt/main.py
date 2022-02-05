@@ -25,7 +25,7 @@ args = ap.parse_args(preproc)
 
 async def get_PATH_tt():
     proc = None
-    if (os.platform == "win32"):
+    if (sys.platform == "win32"):
         proc = await asyncio.create_subprocess_shell(
             "where tt", stderr=asyncio.subprocess.PIPE, stdout=asyncio.subprocess.PIPE
         )
