@@ -4,4 +4,3 @@
 /env/
 *.pyc
 /dist/
-*.spec
