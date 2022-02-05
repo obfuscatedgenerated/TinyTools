@@ -10,6 +10,7 @@ ap.add_argument(
 ap.add_argument(
     "--scale", "-s", type=float, help="the scale of the image", default=1.0
 )
+ap.add_argument("--delimiter", "-d", type=str, help="the character to add after each ASCII char", default="")
 
 args = ap.parse_args()
 
@@ -32,8 +33,7 @@ asc_scalar = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"
 for i in range(0,w):
     row = []
     for j in range(0,h):
-        #print(i,j,".",w,h)
-        row.append(asc_scalar[int((np.average(ia[i][j])*(len(asc_scalar)-1))/255)])
+        row.append(asc_scalar[int((np.average(ia[i][j])*(len(asc_scalar)-1))/255)]+args.delimiter)
     output.append("".join(row))
 
 print("\n".join(output))
