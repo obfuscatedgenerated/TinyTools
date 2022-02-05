@@ -24,9 +24,15 @@ if not (preproc[0] == "--help" or preproc[0] == "-h"):
 args = ap.parse_args(preproc)
 
 async def get_PATH_tt():
-    proc = await asyncio.create_subprocess_shell(
-        "where tt", stderr=asyncio.subprocess.PIPE, stdout=asyncio.subprocess.PIPE
-    )
+    proc = None
+    if (os.platform == "win32"):
+        proc = await asyncio.create_subprocess_shell(
+            "where tt", stderr=asyncio.subprocess.PIPE, stdout=asyncio.subprocess.PIPE
+        )
+    else:
+        proc = await asyncio.create_subprocess_shell(
+            "which tt", stderr=asyncio.subprocess.PIPE, stdout=asyncio.subprocess.PIPE
+        )
 
     stdout, stderr = await proc.communicate()
     if stderr:
