@@ -32,10 +32,10 @@ async def get_PATH_tt():
     if stderr:
         if stderr.startswith(b"INFO:"):
             print("Cannot use tt as TinyTools is not on the PATH.")
-            exit(1)
+            sys.exit(1)
         else:
             print("Unexpected output from where: "+op)
-            exit(1)
+            sys.exit(1)
     else:
         if os.path.isdir(os.path.dirname(stdout.decode().strip())):
             return os.path.dirname(stdout.decode().strip())
@@ -50,7 +50,7 @@ elif (args.action == "run"):
     for file in glob.glob(os.path.join(toolpath)+"/*.exe"):
         if tool == os.path.basename(file).replace(".exe",""):
             os.system(os.path.join(toolpath,file)+" "+" ".join(toolargs))
-            exit(0)
+            sys.exit(0)
     print("Tool not found.")
 else:
     print(Fore.YELLOW+"Deprecation Warning: v1 syntax is being phased out! Use tt run {tool} instead of tt {tool}")
