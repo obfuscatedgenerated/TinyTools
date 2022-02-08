@@ -1,5 +1,12 @@
-pyinstaller --onefile ./src/tt/main.py --specpath ./spec/ --name=tt
-pyinstaller --onefile ./src/chars/main.py --specpath ./spec/ --name=chars
-pyinstaller --onefile ./src/lines/main.py --specpath ./spec/ --name=lines
-pyinstaller --onefile ./src/size/main.py --specpath ./spec/ --name=size
-pyinstaller --onefile ./src/image2ascii/main.py --specpath ./spec/ --name=image2ascii
+PYTHONHASHSEED=1
+export PYTHONHASHSEED
+SOURCE_DATE_EPOCH=$(git log -1 --pretty=%ct)
+export SOURCE_DATE_EPOCH
+# create one-file build as myscript
+pyinstaller ./spec/tt.spec
+pyinstaller ./spec/chars.spec
+pyinstaller ./spec/lines.spec
+pyinstaller ./spec/size.spec
+pyinstaller ./spec/image2ascii.spec
+# let Python be unpredictable again
+unset PYTHONHASHSEED

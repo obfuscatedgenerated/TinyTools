@@ -10,7 +10,7 @@ Step 2. (optional but recommended) `python -m venv env` `./env/scripts/activate`
 
 Step 3. `pip install -r requirements.txt`
 
-Step 4. `build.sh` (if you are on Windows and you don't have Git Bash, rename the file to build.bat and run it)
+Step 4. `build.sh` (On Windows,you'll need Git Bash or an equivalent for the time being)
 
 Step 5. Add /dist/ to the PATH.
 
