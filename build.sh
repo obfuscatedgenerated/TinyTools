@@ -10,3 +10,4 @@ pyinstaller ./spec/size.spec
 pyinstaller ./spec/image2ascii.spec
 # let Python be unpredictable again
 unset PYTHONHASHSEED
+unset SOURCE_DATE_EPOCH
