@@ -5,7 +5,7 @@ block_cipher = None
 
 
 a = Analysis(['..\\src\\image2ascii\\main.py'],
-             pathex=[],
+             pathex=['./env/Lib/site-packages'],
              binaries=[],
              datas=[],
              hiddenimports=[],
